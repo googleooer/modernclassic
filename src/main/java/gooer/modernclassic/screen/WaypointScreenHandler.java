@@ -8,9 +8,21 @@ import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
+import net.minecraft.tag.ItemTags;
 
 public class WaypointScreenHandler extends ScreenHandler {
-    private final Inventory inventory;
+    private final Inventory inventory = new SimpleInventory(1){
+
+        @Override
+        public boolean isValid(int slot, ItemStack stack) {
+            return stack.isIn(ItemTags.BEACON_PAYMENT_ITEMS);
+        }
+
+        @Override
+        public int getMaxCountPerStack() {
+            return 1;
+        }
+    };
 
     //This constructor gets called on the client when the server wants it to open the screenHandler,
     //The client will call the other constructor with an empty Inventory and the screenHandler will automatically
@@ -23,8 +35,8 @@ public class WaypointScreenHandler extends ScreenHandler {
     //and can therefore directly provide it as an argument. This inventory will then be synced to the client.
     public WaypointScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
         super(Modernclassic.WAYPOINT_SCREEN_HANDLER, syncId);
-        checkSize(inventory, 1);
-        this.inventory = inventory;
+            //checkSize(inventory, 1);
+            //this.inventory = inventory;
         //some inventories do custom logic when a player opens it.
         inventory.onOpen(playerInventory.player);
 
