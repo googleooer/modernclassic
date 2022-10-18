@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "modernclassic",
+  "version": "ALPHA1.0.0",
+  "name": "Modern Classic",
+  "description": "This mod aims to bring back the lonely/desolate atmosphere to Minecraft, and make survival actually challenging and balanced again.",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/modernclassic/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "gooer.modernclassic.client.ModernclassicClient"
+    ],
+    "main": [
+      "gooer.modernclassic.Modernclassic"
+    ]
+  },
+  "mixins": [
+    "modernclassic.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.7",
+    "fabric": "*",
+    "minecraft": "1.19"
+  }
+}

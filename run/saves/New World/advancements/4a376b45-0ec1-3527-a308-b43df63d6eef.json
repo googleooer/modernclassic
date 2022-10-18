@@ -1,0 +1,10 @@
+{
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:windswept_hills": "2022-06-13 10:35:58 -0300",
+      "minecraft:plains": "2022-06-13 10:33:48 -0300"
+    },
+    "done": false
+  },
+  "DataVersion": 3105
+}
