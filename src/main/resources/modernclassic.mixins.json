@@ -4,8 +4,15 @@
   "package": "gooer.modernclassic.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BobViewFixMixin",
+    "DamageBobFixMixin",
+    "EntityBobbingStuffMixin",
+    "FletchingTableOnUseOverrideMixin"
   ],
   "client": [
+  ],
+  "server": [
+    "MinLevelOverrideMixin"
   ],
   "injectors": {
     "defaultRequire": 1

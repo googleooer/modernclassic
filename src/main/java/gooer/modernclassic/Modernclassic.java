@@ -1,5 +1,6 @@
 package gooer.modernclassic;
 
+import gooer.modernclassic.screen.FletchingTableScreenHandler;
 import gooer.modernclassic.screen.WaypointScreenHandler;
 import gooer.modernclassic.world.level.block.WaypointBlock;
 import gooer.modernclassic.world.level.block.entity.WaypointBlockEntity;
@@ -23,14 +24,19 @@ public class Modernclassic implements ModInitializer {
 
 
     //Declare dummy block
-    public static final WaypointBlock WAYPOINT_BLOCK = new WaypointBlock(FabricBlockSettings.of(Material.METAL).strength(8.0f).requiresTool());
+    public static final WaypointBlock WAYPOINT_BLOCK = new WaypointBlock(FabricBlockSettings.of(Material.METAL).strength(8.0f).requiresTool().luminance(state -> 7));
     public static final BlockEntityType<WaypointBlockEntity> WAYPOINT_BLOCK_ENTITY = FabricBlockEntityTypeBuilder.create(WaypointBlockEntity::new, WAYPOINT_BLOCK).build(null);
     public static final ScreenHandlerType<WaypointScreenHandler> WAYPOINT_SCREEN_HANDLER;
 
     public static final Identifier WAYPOINT = new Identifier(MOD_ID, "waypoint");
 
+
+    public static final ScreenHandlerType<FletchingTableScreenHandler> FLETCHING_SCREEN_HANDLER;
+    public static final Identifier FLETCHING = new Identifier(MOD_ID, "fletching");
+
     static {
         WAYPOINT_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(WAYPOINT, WaypointScreenHandler::new);
+        FLETCHING_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(FLETCHING, FletchingTableScreenHandler::new);
 
 
     }
