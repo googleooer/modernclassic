@@ -11,6 +11,7 @@ import gooer.modernclassic.entity.player.CustomPlayerEntityAccess;
 import gooer.modernclassic.entity.vehicle.CustomMinecartTypeEnum;
 import gooer.modernclassic.entity.vehicle.dispenser.DispenserMinecartBehavior;
 import gooer.modernclassic.item.CustomMinecartItem;
+import gooer.modernclassic.networking.NetworkingMessages;
 import gooer.modernclassic.screen.FletchingTableScreenHandler;
 import gooer.modernclassic.screen.WaypointScreenHandler;
 import gooer.modernclassic.entity.vehicle.DispenserMinecartEntity;
@@ -18,10 +19,14 @@ import gooer.modernclassic.block.WaypointBlock;
 import gooer.modernclassic.block.entity.WaypointBlockEntity;
 import gooer.modernclassic.data.tutorial.TutorialPacket;
 import gooer.modernclassic.data.tutorial.TutorialStep;
+import gooer.modernclassic.world.BetaRewindServerState;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -33,6 +38,7 @@ import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.*;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -173,6 +179,8 @@ public class Modernclassic implements ModInitializer {
 
     public static final TutorialDataLoader tutorialDataLoader = new TutorialDataLoader();
 
+    public static BetaRewindServerState serverState;
+
 
 
 
@@ -181,17 +189,21 @@ public class Modernclassic implements ModInitializer {
     @Override
     public void onInitialize() {
 
+        ServerPlayConnectionEvents.JOIN.register(((handler, sender, server) -> {
+            serverState = BetaRewindServerState.getServerState(handler.player.world.getServer());
+
+            PacketByteBuf data = PacketByteBufs.create();
+            data.writeBoolean(serverState.ignoreExperimentalWarning);
+            ServerPlayNetworking.send(handler.player, NetworkingMessages.IGNORE_EXPERIMENTAL_WARNING, data);
+        }));
+
+
+
 
 
         ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(tutorialDataLoader);
 
-
-
-
-
         //Register tutorial tick
-
-
         ServerTickEvents.END_SERVER_TICK.register(server -> {
 
             for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
