@@ -334,12 +334,14 @@ Getting ready to drop!
 Getting ready to shock!
 Getting ready to freak!
 Getting ready to speak!
+Put dispenser here.
 It swings, it jives!
 Cruising streets for gold!
 Take an eggbeater and beat it against a skillet!
 Make me a table, a funky table!
 Take the elevator to the mezzanine!
 Stop being reasonable, this is the Internet!
+It's a retirement community!
 /give @a hugs 64
 This is good for Realms.
 Any computer is a laptop if you're brave enough!
@@ -347,6 +349,7 @@ Do it all, everything!
 Where there is not light, there can spider!
 More Digital!
 doot doot
+Sometimes, I dream about cheese...
 Falling with style!
 Throw yourself at the ground and miss
 Rule #1: it's never my fault
@@ -355,16 +358,18 @@ Absolutely fixed relatively broken coordinates
 Boats FTW
 Should not be played while driving
 You're going too fast!
-Don't feed chocolate to parrots!
+Beta-ified!
 An illusion! What are you hiding?
 Something's not quite right...
 Thank you for the fish!
 All rumors are true!
 Truly gone fishing!
 Rainbow turtle?
+You're a buddy!
 Something funny!
 I need more context.
 Ahhhhhh!
+Zero chat reporting!
 Don't worry, be happy!
 Water bottle!
 What's the question?
@@ -374,3 +379,8 @@ What do you expect?
 Look mum, I'm in a splash!
 It came from space.
 Awesome game design right there!
+Mathematical!
+KA-BOOOOM!
+Node Graph out of Date. Rebuilding...
+it is a mystery
+Prepare for unforeseen consequences...

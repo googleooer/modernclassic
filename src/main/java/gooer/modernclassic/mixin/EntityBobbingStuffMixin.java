@@ -1,10 +1,14 @@
 package gooer.modernclassic.mixin;
 
+import gooer.modernclassic.client.BobViewFixInterface;
+import gooer.modernclassic.client.CameraPitchFixInterface;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MovementType;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.command.CommandOutput;
@@ -15,32 +19,69 @@ import net.minecraft.util.math.Vec3f;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import net.minecraft.world.entity.EntityLike;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
-import org.spongepowered.asm.mixin.Shadow;
+import org.objectweb.asm.Opcodes;
+import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(Entity.class)
-public class EntityBobbingStuffMixin{
+@Mixin(LivingEntity.class)
+public abstract class EntityBobbingStuffMixin implements CameraPitchFixInterface,BobViewFixInterface, EntityLike{
+
+    @Override
+    public float getPrevSpeed() {
+        return prevSpeed;
+    }
+
+    @Override
+    public float getPrevDistanceWalkedModified(){
+        return prevDistanceWalkedModified;
+    }
+
+    @Override
+    public float getDistanceWalkedModified(){
+        return distanceWalkedModified;
+    }
+
+
+
+    @Unique private float cameraPitch = 0.0f;
+    @Unique public float prevCameraPitch = 0.0f;
+
+
+    @Override
+    public void setCameraPitch(float newCameraPitch) {
+        this.cameraPitch = newCameraPitch;
+    }
+
+    @Override
+    public void setPrevCameraPitch(float newPrevCameraPitch) {
+        this.prevCameraPitch = newPrevCameraPitch;
+    }
+
+    @Override
+    public float getCameraPitch() {
+        return cameraPitch;
+    }
+
+    @Override
+    public float getPrevCameraPitch() {
+        return prevCameraPitch;
+    }
+
+
+    float prevDistanceWalkedModified;
+    float distanceWalkedModified;
+
+    float prevSpeed;
 
 
 
 
-    //private static float prevSpeed;
-
-    /*float getPrevSpeed(){
-     return prevSpeed;
-    }*/
-
-    @Shadow public float speed;
-
-    @Shadow public World world;
 
 
-    @Shadow private Vec3d pos;
+
+    /*
 
     @Inject(method="<init>", at=@At("HEAD"))
     private static void defineGeneralSpeed(EntityType type, World world, CallbackInfo ci){
@@ -58,25 +99,50 @@ public class EntityBobbingStuffMixin{
 
         distanceWalkedModified = (float((double)distanceWalkedModified + (double)MathHelper.sqrt()))
 
+    }*/
+
+/*
+
+    @Inject(method="move",at=@At("HEAD"))
+    void updateWalkStuff(MovementType movementType, Vec3d movement, CallbackInfo ci){
+        double d10 = this.pos.x;
+        double d11 = this.pos.y;
+        double d1 = this.pos.z;
+
+        if(movementType = MovementType.PLAYER && (this.isOnGround() || !this.isSneaking() || !((Entity)this instanceof PlayerEntity) || !this.hasVehicle())){
+            double d15 = this.pos.x - d10;
+            double d16 = this.pos.y - d11;
+            double d17 = this.pos.z - d1;
+
+            this.distanceWalkedModified = (float)((double)this.distanceWalkedModified + (double)MathHelper.sqrt((float) (d15 * d15 + d17 * d17)) * 0.6D);
+
+
+        }
+
+
+
     }
 
-    @Inject(method="move(Lnet/minecraft/entity/MovementType$MovementType;Lnet/minecraft/util/math/Position$Vec3d;)V")
-    void updateWalkStuff(){
+*/
 
-    }
+
 
 
     /**
      * @author Max
      * @reason Adds general prevSpeed. Required by BobViewFixMixin to replace prevHorizontalSpeed with an all-axis version so bobbing supports jumping once again like before 1.13.
      */
-    /*@Inject(method="baseTick()V", at=@At(value="FIELD", ordinal = 1, target = "Lnet/minecraft/entity/Entity;prevHorizontalSpeed:F"))
-    private void updatePrevSpeed(CallbackInfo ci) {
+    @Inject(method="baseTick()V", at=@At(value="FIELD",ordinal = 0,target = "Lnet/minecraft/entity/LivingEntity;hurtTime:I"))
+    void updatePrevSpeed(CallbackInfo ci) {
 
-        prevSpeed = speed;
+        this.setPrevCameraPitch(this.getCameraPitch());
 
 
-    }*/
+
+
+    }
+
+
 
 
 

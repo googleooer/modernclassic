@@ -4,15 +4,46 @@
   "package": "gooer.modernclassic.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AbstractMinecartEntityMixin",
+    "BlocksMixin",
     "BobViewFixMixin",
+    "CampfireBlockEntityMixin",
+    "CampfireBlockMixin",
     "DamageBobFixMixin",
+    "EnchantCommandMixin",
     "EntityBobbingStuffMixin",
-    "FletchingTableOnUseOverrideMixin"
+    "FletchingTableOnUseOverrideMixin",
+    "ItemsMixin",
+    "PlayerStuffMixin",
+    "SpawnerMinecartEntityMixin",
+    "WaterLightMixin",
+    "block.NoteBlockMixin",
+    "client.LevelSummaryMixin",
+    "client.state.StateMixin",
+    "enchantment.MendingEnchantmentMixin",
+    "enchantment.UnbreakingEnchantmentMixin",
+    "entity.mob.AbstractSkeletonEntityMixin",
+    "entity.mob.ZombieEntityMixin",
+    "entity.player.HungerManagerMixin",
+    "entity.projectile.FireworkRocketEntityMixin",
+    "entity.vehicle.AbstractMinecartEntityMixin",
+    "screen.AnvilScreenHandlerMixin",
+    "entity.player.PlayerEntityMixin"
   ],
   "client": [
+    "client.BackgroundRendererMixin",
+    "client.ClientPlayerEntityStuffMixin",
+    "client.MinecraftClientMixin",
+    "client.WaterOverlayMixin",
+    "client.gui.hud.InGameHudMixin",
+    "client.gui.screen.option.VideoOptionsScreenMixin",
+    "client.network.ClientPlayerEntityMixin",
+    "client.network.ClientPlayerInteractionManagerMixin",
+    "client.option.GameOptionsMixin",
+    "client.render.WorldRendererMixin",
+    "client.render.entity.MinecartEntityRendererMixin"
   ],
   "server": [
-    "MinLevelOverrideMixin"
   ],
   "injectors": {
     "defaultRequire": 1

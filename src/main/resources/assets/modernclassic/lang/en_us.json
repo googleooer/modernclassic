@@ -1,5 +1,10 @@
 {
   "block.modernclassic.waypoint": "Waypoint",
-  "item.modernclassic.waypoint": "Waypoint"
+  "item.modernclassic.waypoint": "Waypoint",
+  "item.modernclassic.spawner_minecart": "Monster Spawner Minecart",
+  "item.modernclassic.dispenser_minecart": "Dispenser Minecart",
+  "item.modernclassic.dropper_minecart": "Dropper Minecart",
+  "block.modernclassic.framed_glass": "Framed Glass",
+  "item.modernclassic.powered_copper_rail": "Powered Copper Rail"
 
 }

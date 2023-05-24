@@ -24,5 +24,8 @@
     "fabricloader": ">=0.14.7",
     "fabric": "*",
     "minecraft": "1.19"
+  },
+  "loom" : {
+    "accessWidenerPath": "src/main/resources/modernclassic.accesswidener"
   }
 }

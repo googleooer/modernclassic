@@ -1,19 +1,10 @@
 package gooer.modernclassic.recipe;
 
-import com.google.gson.JsonObject;
-import gooer.modernclassic.world.level.block.entity.ImplementedInventory;
-import net.minecraft.block.Blocks;
 import net.minecraft.inventory.CraftingInventory;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.*;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.JsonHelper;
 import net.minecraft.world.World;
-
-import java.util.stream.Stream;
 
 public class FletchingRecipe
         implements Recipe<CraftingInventory> {
