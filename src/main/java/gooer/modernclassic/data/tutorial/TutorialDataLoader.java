@@ -43,8 +43,8 @@ public class TutorialDataLoader implements SimpleSynchronousResourceReloadListen
             TutorialStep copiedStep = new TutorialStep(
                     originalStep.getTutorialTitle(),
                     originalStep.getTutorialText(),
-                    originalStep.getDuration(),
-                    originalStep.getAction()
+                    originalStep.getDuration()//,
+                    //originalStep.getAction()
             );
             copiedSteps.add(copiedStep);
         }

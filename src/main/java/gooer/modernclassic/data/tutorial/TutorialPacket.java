@@ -2,6 +2,7 @@ package gooer.modernclassic.data.tutorial;
 
 import gooer.modernclassic.Modernclassic;
 import gooer.modernclassic.entity.player.CustomPlayerEntityAccess;
+import gooer.modernclassic.networking.NetworkingMessages;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -19,12 +20,12 @@ public class TutorialPacket {
         buf.writeUuid(player.getUuid());
         buf.writeString(tutorialId);
         buf.writeInt(code);
-        ServerPlayNetworking.send((ServerPlayerEntity) player, new Identifier("modernclassic", "tutorial"), buf);
+        ServerPlayNetworking.send((ServerPlayerEntity) player, NetworkingMessages.TUTORIAL, buf);
         //Modernclassic.LOGGER.info("TutorialPacket: Serverside -> Tutorial packet sent!");
     }
 
     public static void registerClientPacket() {
-        ClientPlayNetworking.registerGlobalReceiver(new Identifier("modernclassic", "tutorial"), (client, handler, buf, responseSender) -> {
+        ClientPlayNetworking.registerGlobalReceiver(NetworkingMessages.TUTORIAL, (client, handler, buf, responseSender) -> {
             UUID uuid = buf.readUuid();
             String id = buf.readString();
             //-1 or anything else = Add tutorial.

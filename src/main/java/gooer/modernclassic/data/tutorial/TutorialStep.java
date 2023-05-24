@@ -15,13 +15,14 @@ public class TutorialStep {
 
     //Action is an int, but use GLFW codes.
     //-1 for no action
-    private final int action;
+    //TODO: Properly implement actions.
+    //private final int action;
 
-    public TutorialStep(String tutorialTitle, String tutorialText, int duration, int action){
+    public TutorialStep(String tutorialTitle, String tutorialText, int duration/*, int action*/){
         this.tutorialTitle = tutorialTitle;
         this.tutorialText = tutorialText;
         this.duration = duration;
-        this.action = action;
+        //this.action = action;
     }
 
     public boolean tick() {
@@ -29,8 +30,8 @@ public class TutorialStep {
         //Only print multiples of 10
         //if(this.duration % 10 == 0) Modernclassic.LOGGER.info(String.format("TutorialStep: Ticked step: %d", getDuration()));
 
-
-        if(action != -1) return duration <=0 && new KeyBinding("", InputUtil.Type.KEYSYM, action, "").isPressed();
+        //TODO: Properly implement actions.
+        //if(action != -1) return duration <=0 && new KeyBinding("", InputUtil.Type.KEYSYM, action, "").isPressed();
 
         return duration <= 0;
     }
@@ -52,8 +53,12 @@ public class TutorialStep {
         this.duration = duration - 1;
     }
 
+    /*
+
     public int getAction() {
         return action;
     }
+
+     */
 
 }

@@ -45,7 +45,7 @@ public class TutorialGroup {
         getCurrentStep().decrementDuration();
 
 
-        if(getCurrentStep().getAction() != -1) return getCurrentStep().getDuration() <=0 && new KeyBinding("", InputUtil.Type.KEYSYM, getCurrentStep().getAction(), "").isPressed();
+        //if(getCurrentStep().getAction() != -1) return getCurrentStep().getDuration() <=0 && new KeyBinding("", InputUtil.Type.KEYSYM, getCurrentStep().getAction(), "").isPressed();
 
         return getCurrentStep().getDuration() <= 0;
     }
