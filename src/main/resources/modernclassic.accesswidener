@@ -11,3 +11,6 @@ accessible class net/minecraft/client/render/BackgroundRenderer$StatusEffectFogM
 accessible method net/minecraft/client/render/BackgroundRenderer getFogModifier (Lnet/minecraft/entity/Entity;F)Lnet/minecraft/client/render/BackgroundRenderer$StatusEffectFogModifier;
 accessible field net/minecraft/screen/ForgingScreenHandler output Lnet/minecraft/inventory/CraftingResultInventory;
 accessible field net/minecraft/screen/AnvilScreenHandler repairItemUsage I
+accessible method net/minecraft/server/integrated/IntegratedServerLoader createDataPackManager (Lnet/minecraft/world/level/storage/LevelStorage$Session;)Lnet/minecraft/resource/ResourcePackManager;
+accessible method net/minecraft/server/integrated/IntegratedServerLoader close (Lnet/minecraft/world/level/storage/LevelStorage$Session;Ljava/lang/String;)V
+accessible method net/minecraft/util/dynamic/RegistryOps ofLoaded (Lcom/mojang/serialization/DynamicOps;Lnet/minecraft/util/registry/DynamicRegistryManager$Mutable;Lnet/minecraft/resource/ResourceManager;)Lnet/minecraft/util/dynamic/RegistryOps;

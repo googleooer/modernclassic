@@ -28,7 +28,8 @@
     "entity.player.PlayerEntityMixin",
     "entity.projectile.FireworkRocketEntityMixin",
     "entity.vehicle.AbstractMinecartEntityMixin",
-    "screen.AnvilScreenHandlerMixin"
+    "screen.AnvilScreenHandlerMixin",
+    "server.integrated.IntegratedServerLoaderMixin"
   ],
   "client": [
     "client.BackgroundRendererMixin",
@@ -41,8 +42,7 @@
     "client.network.ClientPlayerInteractionManagerMixin",
     "client.option.GameOptionsMixin",
     "client.render.WorldRendererMixin",
-    "client.render.entity.MinecartEntityRendererMixin",
-    "server.integrated.IntegratedServerLoaderMixin"
+    "client.render.entity.MinecartEntityRendererMixin"
   ],
   "server": [
   ],
