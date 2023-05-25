@@ -1,7 +1,7 @@
 package gooer.modernclassic.data.tutorial;
 
 import gooer.modernclassic.Modernclassic;
-import gooer.modernclassic.entity.player.CustomPlayerEntityAccess;
+import gooer.modernclassic.duck_accessors.entity.player.CustomPlayerEntityAccess;
 import gooer.modernclassic.networking.NetworkingMessages;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -9,7 +9,6 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.util.Identifier;
 
 import java.util.List;
 import java.util.UUID;

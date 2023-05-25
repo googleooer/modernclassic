@@ -2,11 +2,9 @@ package gooer.modernclassic.block;
 
 import gooer.modernclassic.Modernclassic;
 import gooer.modernclassic.block.entity.TutorialBlockEntity;
-import gooer.modernclassic.data.tutorial.TutorialData;
 import gooer.modernclassic.data.tutorial.TutorialGroup;
 import gooer.modernclassic.data.tutorial.TutorialPacket;
-import gooer.modernclassic.data.tutorial.TutorialStep;
-import gooer.modernclassic.entity.player.CustomPlayerEntityAccess;
+import gooer.modernclassic.duck_accessors.entity.player.CustomPlayerEntityAccess;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
@@ -16,7 +14,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
 import java.util.List;
 
 

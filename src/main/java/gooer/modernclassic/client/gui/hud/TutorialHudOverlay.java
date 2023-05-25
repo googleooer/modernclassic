@@ -1,7 +1,7 @@
 package gooer.modernclassic.client.gui.hud;
 
 import gooer.modernclassic.data.tutorial.TutorialGroup;
-import gooer.modernclassic.entity.player.CustomPlayerEntityAccess;
+import gooer.modernclassic.duck_accessors.entity.player.CustomPlayerEntityAccess;
 import gooer.modernclassic.data.tutorial.TutorialStep;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;

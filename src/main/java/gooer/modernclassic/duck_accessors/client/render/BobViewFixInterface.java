@@ -1,4 +1,4 @@
-package gooer.modernclassic.client;
+package gooer.modernclassic.duck_accessors.client.render;
 
 public interface BobViewFixInterface {
     float getPrevSpeed();

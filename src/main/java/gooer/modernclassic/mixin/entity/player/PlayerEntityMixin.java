@@ -1,7 +1,6 @@
 package gooer.modernclassic.mixin.entity.player;
 
-import gooer.modernclassic.Modernclassic;
-import gooer.modernclassic.entity.player.CustomPlayerEntityAccess;
+import gooer.modernclassic.duck_accessors.entity.player.CustomPlayerEntityAccess;
 import gooer.modernclassic.data.tutorial.TutorialGroup;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;

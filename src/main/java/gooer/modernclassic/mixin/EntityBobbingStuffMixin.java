@@ -1,25 +1,9 @@
 package gooer.modernclassic.mixin;
 
-import gooer.modernclassic.client.BobViewFixInterface;
+import gooer.modernclassic.duck_accessors.client.render.BobViewFixInterface;
 import gooer.modernclassic.client.CameraPitchFixInterface;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.render.GameRenderer;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MovementType;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.server.command.CommandOutput;
-import net.minecraft.util.Nameable;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.Vec3f;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldEvents;
 import net.minecraft.world.entity.EntityLike;
-import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

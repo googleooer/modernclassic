@@ -1,4 +1,4 @@
-package gooer.modernclassic.entity.player;
+package gooer.modernclassic.duck_accessors.entity.player;
 
 import gooer.modernclassic.data.tutorial.TutorialGroup;
 

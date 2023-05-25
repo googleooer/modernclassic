@@ -7,7 +7,7 @@ import gooer.modernclassic.block.entity.FatigueBlockEntity;
 import gooer.modernclassic.block.entity.TutorialBlockEntity;
 import gooer.modernclassic.data.tutorial.TutorialDataLoader;
 import gooer.modernclassic.data.tutorial.TutorialGroup;
-import gooer.modernclassic.entity.player.CustomPlayerEntityAccess;
+import gooer.modernclassic.duck_accessors.entity.player.CustomPlayerEntityAccess;
 import gooer.modernclassic.entity.vehicle.CustomMinecartTypeEnum;
 import gooer.modernclassic.entity.vehicle.dispenser.DispenserMinecartBehavior;
 import gooer.modernclassic.item.CustomMinecartItem;
