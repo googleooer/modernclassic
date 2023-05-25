@@ -7,9 +7,10 @@ import gooer.modernclassic.block.entity.FatigueBlockEntity;
 import gooer.modernclassic.block.entity.TutorialBlockEntity;
 import gooer.modernclassic.data.tutorial.TutorialDataLoader;
 import gooer.modernclassic.data.tutorial.TutorialGroup;
-import gooer.modernclassic.duck_accessors.entity.player.CustomPlayerEntityAccess;
+import gooer.modernclassic.duck_accessors.entity.player.PlayerEntityAccessor;
 import gooer.modernclassic.entity.vehicle.CustomMinecartTypeEnum;
 import gooer.modernclassic.entity.vehicle.dispenser.DispenserMinecartBehavior;
+import gooer.modernclassic.input.BetaRewindKeyBinds;
 import gooer.modernclassic.item.CustomMinecartItem;
 import gooer.modernclassic.networking.NetworkingMessages;
 import gooer.modernclassic.screen.FletchingTableScreenHandler;
@@ -186,8 +187,12 @@ public class Modernclassic implements ModInitializer {
 
 
 
+
+
     @Override
     public void onInitialize() {
+
+
 
         ServerPlayConnectionEvents.JOIN.register(((handler, sender, server) -> {
             serverState = BetaRewindServerState.getServerState(handler.player.world.getServer());
@@ -207,7 +212,7 @@ public class Modernclassic implements ModInitializer {
         ServerTickEvents.END_SERVER_TICK.register(server -> {
 
             for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
-                List<TutorialGroup> tutorials = ((CustomPlayerEntityAccess) player).getQueuedTutorials();
+                List<TutorialGroup> tutorials = ((PlayerEntityAccessor) player).getQueuedTutorials();
 
                 if (!tutorials.isEmpty() && tutorials.get(0) != null) {
                     TutorialGroup currentTutorial = tutorials.get(0);
@@ -235,9 +240,9 @@ public class Modernclassic implements ModInitializer {
                             //LOGGER.info("ServerTick: Serverside -> No more tutorial steps left. Removing tutorial from server and client...");
 
                             //Remove tutorial from server
-                            List<TutorialGroup> adjustedTutorials = ((CustomPlayerEntityAccess) player).getQueuedTutorials();
+                            List<TutorialGroup> adjustedTutorials = ((PlayerEntityAccessor) player).getQueuedTutorials();
                             adjustedTutorials.remove(0);
-                            ((CustomPlayerEntityAccess) player).setQueuedTutorials(adjustedTutorials);
+                            ((PlayerEntityAccessor) player).setQueuedTutorials(adjustedTutorials);
                             //LOGGER.info("ServerTick: Serverside -> Discarded tutorial from serverside player entity...");
 
                             //Remove tutorial from client

@@ -3,6 +3,7 @@ package gooer.modernclassic.client;
 import gooer.modernclassic.Modernclassic;
 import gooer.modernclassic.client.gui.hud.TutorialHudOverlay;
 import gooer.modernclassic.client.render.entity.DispenserMinecartEntityModel;
+import gooer.modernclassic.input.BetaRewindKeyBinds;
 import gooer.modernclassic.screen.FletchingTableScreen;
 import gooer.modernclassic.screen.WaypointScreen;
 import net.fabricmc.api.ClientModInitializer;
@@ -27,8 +28,15 @@ public class ModernclassicClient implements ClientModInitializer {
     public static Matrix4f blueModelView = new Matrix4f();
     public static Matrix4f blueProjection = new Matrix4f();
 
+    public static BetaRewindKeyBinds keyBinds;
+
     @Override
     public void onInitializeClient() {
+
+        keyBinds = new BetaRewindKeyBinds();
+        keyBinds.init();
+
+
         HandledScreens.register(Modernclassic.WAYPOINT_SCREEN_HANDLER, WaypointScreen::new);
         HandledScreens.register(Modernclassic.FLETCHING_SCREEN_HANDLER, FletchingTableScreen::new);
 

@@ -1,8 +1,7 @@
-package gooer.modernclassic.mixin;
+package gooer.modernclassic.mixin.block;
 
 
 import gooer.modernclassic.screen.FletchingTableScreenHandler;
-import net.fabricmc.tinyremapper.extension.mixin.common.Logger;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CraftingTableBlock;
 import net.minecraft.block.FletchingTableBlock;
@@ -10,8 +9,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
-import net.minecraft.screen.SmithingScreenHandler;
-import net.minecraft.server.Main;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -20,20 +17,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.logging.Level;
 
 @Mixin(FletchingTableBlock.class)
-public class FletchingTableOnUseOverrideMixin extends CraftingTableBlock {
+public class FletchingTableMixin extends CraftingTableBlock {
 
     private static final Text SCREEN_TITLE = Text.translatable("container.fletching");
 
-    public FletchingTableOnUseOverrideMixin(Settings settings) {
+    public FletchingTableMixin(Settings settings) {
         super(settings);
     }
 

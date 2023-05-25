@@ -4,7 +4,7 @@ import gooer.modernclassic.Modernclassic;
 import gooer.modernclassic.block.entity.TutorialBlockEntity;
 import gooer.modernclassic.data.tutorial.TutorialGroup;
 import gooer.modernclassic.data.tutorial.TutorialPacket;
-import gooer.modernclassic.duck_accessors.entity.player.CustomPlayerEntityAccess;
+import gooer.modernclassic.duck_accessors.entity.player.PlayerEntityAccessor;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
@@ -48,7 +48,7 @@ public class TutorialBlock extends BlockWithEntity {
 
         if (!world.isClient && entity instanceof PlayerEntity) {
 
-            if (hasMatchingTutorial(((CustomPlayerEntityAccess) entity).getQueuedTutorials(),blockEntity.getTutorialId())) return;
+            if (hasMatchingTutorial(((PlayerEntityAccessor) entity).getQueuedTutorials(),blockEntity.getTutorialId())) return;
 
             //Modernclassic.LOGGER.warn("Player touched Tutorial Block!");
             //List<TutorialData> tutorials = ((CustomPlayerEntityAccess)entity).getQueuedTutorials();
@@ -65,7 +65,7 @@ public class TutorialBlock extends BlockWithEntity {
 
 
             //Update tutorial on server-side
-            List<TutorialGroup> tutorials = ((CustomPlayerEntityAccess) entity).getQueuedTutorials();
+            List<TutorialGroup> tutorials = ((PlayerEntityAccessor) entity).getQueuedTutorials();
             //Modernclassic.LOGGER.info(String.format("TutorialBlock: Getting tutorial from ID \"%s\"", Modernclassic.parseIdentifier(blockEntity.getTutorialId())));
             TutorialGroup tutorialToAdd = Modernclassic.tutorialDataLoader.getTutorial(Modernclassic.parseIdentifier(blockEntity.getTutorialId()));
             if(tutorialToAdd == null) {
@@ -79,7 +79,7 @@ public class TutorialBlock extends BlockWithEntity {
             //Modernclassic.LOGGER.info(String.format("TutorialBlock: First step duration: %d...", tutorialToAdd.getSteps().get(0).getDuration()));
             tutorials.add(tutorialToAdd);
             //Modernclassic.LOGGER.info(String.format("TutorialBlock: ToServerside -> Calling setQueuedTutorials, target new size: %d...", ((CustomPlayerEntityAccess) entity).getQueuedTutorials().size()));
-            ((CustomPlayerEntityAccess) entity).setQueuedTutorials(tutorials);
+            ((PlayerEntityAccessor) entity).setQueuedTutorials(tutorials);
 
 
             //Send tutorial to client, for clientside display

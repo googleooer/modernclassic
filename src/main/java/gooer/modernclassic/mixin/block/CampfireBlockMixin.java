@@ -1,4 +1,4 @@
-package gooer.modernclassic.mixin;
+package gooer.modernclassic.mixin.block;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;

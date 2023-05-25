@@ -1,6 +1,6 @@
 package gooer.modernclassic.mixin.entity.player;
 
-import gooer.modernclassic.duck_accessors.entity.player.CustomPlayerEntityAccess;
+import gooer.modernclassic.duck_accessors.entity.player.PlayerEntityAccessor;
 import gooer.modernclassic.data.tutorial.TutorialGroup;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Mixin(PlayerEntity.class)
-public abstract class PlayerEntityMixin implements CustomPlayerEntityAccess {
+public abstract class PlayerEntityMixin implements PlayerEntityAccessor {
 
     @Unique
     private List<TutorialGroup> queuedTutorials = new ArrayList<>();

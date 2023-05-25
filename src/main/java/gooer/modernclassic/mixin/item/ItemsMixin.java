@@ -1,4 +1,4 @@
-package gooer.modernclassic.mixin;
+package gooer.modernclassic.mixin.item;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;

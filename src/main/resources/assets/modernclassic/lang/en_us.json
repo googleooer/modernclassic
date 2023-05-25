@@ -5,6 +5,8 @@
   "item.modernclassic.dispenser_minecart": "Dispenser Minecart",
   "item.modernclassic.dropper_minecart": "Dropper Minecart",
   "block.modernclassic.framed_glass": "Framed Glass",
-  "item.modernclassic.powered_copper_rail": "Powered Copper Rail"
+  "item.modernclassic.powered_copper_rail": "Powered Copper Rail",
+  "key.modernclassic.repeatlastcommand": "Repeat last command",
+  "key.modernclassic.repeatlastcommand.nonefound": "No last command found."
 
 }

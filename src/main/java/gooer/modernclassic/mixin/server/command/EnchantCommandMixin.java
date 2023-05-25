@@ -1,4 +1,4 @@
-package gooer.modernclassic.mixin;
+package gooer.modernclassic.mixin.server.command;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType;

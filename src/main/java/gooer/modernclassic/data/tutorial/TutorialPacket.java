@@ -1,7 +1,7 @@
 package gooer.modernclassic.data.tutorial;
 
 import gooer.modernclassic.Modernclassic;
-import gooer.modernclassic.duck_accessors.entity.player.CustomPlayerEntityAccess;
+import gooer.modernclassic.duck_accessors.entity.player.PlayerEntityAccessor;
 import gooer.modernclassic.networking.NetworkingMessages;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -35,7 +35,7 @@ public class TutorialPacket {
                 //Modernclassic.LOGGER.info(String.format("Received tutorial packet with code %d", code));
                 PlayerEntity playerEntity = client.player;
                 if (playerEntity != null && playerEntity.getUuid().equals(uuid)) {
-                    List<TutorialGroup> tutorials = ((CustomPlayerEntityAccess) playerEntity).getQueuedTutorials();
+                    List<TutorialGroup> tutorials = ((PlayerEntityAccessor) playerEntity).getQueuedTutorials();
 
                     switch (code) {
                         case -3 -> {
@@ -67,7 +67,7 @@ public class TutorialPacket {
 
                      */
                     //Modernclassic.LOGGER.info(String.format("TutorialPacket: Client -> Calling setQueuedTutorials. Target new size: %d...", tutorials.size()));
-                    ((CustomPlayerEntityAccess) playerEntity).setQueuedTutorials(tutorials);
+                    ((PlayerEntityAccessor) playerEntity).setQueuedTutorials(tutorials);
 
                 }
             });

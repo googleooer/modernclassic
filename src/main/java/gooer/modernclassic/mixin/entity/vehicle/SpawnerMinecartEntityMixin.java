@@ -1,4 +1,4 @@
-package gooer.modernclassic.mixin;
+package gooer.modernclassic.mixin.entity.vehicle;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.SpawnerMinecartEntity;

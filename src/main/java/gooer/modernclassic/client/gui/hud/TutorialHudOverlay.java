@@ -1,7 +1,7 @@
 package gooer.modernclassic.client.gui.hud;
 
 import gooer.modernclassic.data.tutorial.TutorialGroup;
-import gooer.modernclassic.duck_accessors.entity.player.CustomPlayerEntityAccess;
+import gooer.modernclassic.duck_accessors.entity.player.PlayerEntityAccessor;
 import gooer.modernclassic.data.tutorial.TutorialStep;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
@@ -22,7 +22,7 @@ public class TutorialHudOverlay implements HudRenderCallback{
         MinecraftClient client = MinecraftClient.getInstance();
         PlayerEntity player = client.player;
         if (player != null) {
-            List<TutorialGroup> tutorials = ((CustomPlayerEntityAccess) player).getQueuedTutorials();
+            List<TutorialGroup> tutorials = ((PlayerEntityAccessor) player).getQueuedTutorials();
             if (!tutorials.isEmpty() && tutorials.get(0) != null) {
                 if(tutorials.get(0).getSteps().size() < 1) return;
                 try {

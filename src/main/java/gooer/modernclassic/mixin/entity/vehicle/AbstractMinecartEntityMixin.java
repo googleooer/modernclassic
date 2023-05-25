@@ -13,6 +13,8 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MovementType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.AbstractMinecartEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -22,6 +24,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
@@ -38,6 +41,35 @@ public abstract class AbstractMinecartEntityMixin extends Entity {
 
     public AbstractMinecartEntityMixin(EntityType<?> type, World world) {
         super(type, world);
+    }
+
+
+
+    @Shadow
+    public abstract AbstractMinecartEntity.Type getMinecartType();
+
+    /**
+     * @author Max
+     * @reason Add SPAWNER MINECART
+     */
+    @Overwrite
+    public ItemStack getPickBlockStack() {
+        return new ItemStack(
+                switch (this.getMinecartType()) {
+
+                    case FURNACE -> Items.FURNACE_MINECART;
+                    case CHEST -> Items.CHEST_MINECART;
+                    case TNT -> Items.TNT_MINECART;
+                    case HOPPER -> Items.HOPPER_MINECART;
+                    case COMMAND_BLOCK -> Items.COMMAND_BLOCK_MINECART;
+                    case SPAWNER -> Modernclassic.SPAWNER_MINECART_ITEM;
+                    default -> Items.MINECART;
+
+                }
+
+
+        );
+
     }
 
     /**
